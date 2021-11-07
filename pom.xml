@@ -73,7 +73,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>p1.JoniDemo5</mainClass>
+							<mainClass>p1.ProductHierarchyJob</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
