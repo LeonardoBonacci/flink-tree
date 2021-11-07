@@ -1,4 +1,4 @@
-package p1;
+package guru.bonacci.flink.ph;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

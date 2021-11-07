@@ -1,4 +1,4 @@
-package p1.model;
+package guru.bonacci.flink.ph.model;
 
 import java.util.List;
 

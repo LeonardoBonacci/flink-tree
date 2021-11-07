@@ -1,7 +1,7 @@
-package p1.functions;
+package guru.bonacci.flink.ph.functions;
 
-import static p1.ProductHierarchyJob.ID_FIELD;
-import static p1.ProductHierarchyJob.PARENT_IDS_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.ID_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.PARENT_IDS_FIELD;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +11,7 @@ import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;
 import org.apache.flink.util.Collector;
 
-import p1.model.ProductWrapper;
+import guru.bonacci.flink.ph.model.ProductWrapper;
 
 public class ToProduct implements FlatMapFunction<JsonNode, ProductWrapper> {
 

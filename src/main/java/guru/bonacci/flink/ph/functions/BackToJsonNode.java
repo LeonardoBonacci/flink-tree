@@ -1,12 +1,12 @@
-package p1.functions;
+package guru.bonacci.flink.ph.functions;
 
-import static p1.ProductHierarchyJob.PARENTS_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.PARENTS_FIELD;
 
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;
 
-import p1.model.ProductHierarchyWrapper;
+import guru.bonacci.flink.ph.model.ProductHierarchyWrapper;
 
 public class BackToJsonNode implements MapFunction<ProductHierarchyWrapper, JsonNode> {
 

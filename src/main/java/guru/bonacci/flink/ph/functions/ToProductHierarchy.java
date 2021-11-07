@@ -1,9 +1,9 @@
-package p1.functions;
+package guru.bonacci.flink.ph.functions;
 
-import static p1.ProductHierarchyJob.ID_FIELD;
-import static p1.ProductHierarchyJob.JSON_FIELD;
-import static p1.ProductHierarchyJob.JSON_PARENT_FIELD;
-import static p1.ProductHierarchyJob.PARENT_IDS_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.ID_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.JSON_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.JSON_PARENT_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.PARENT_IDS_FIELD;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;
 import org.apache.flink.types.Row;
 
-import p1.model.ProductHierarchyWrapper;
+import guru.bonacci.flink.ph.model.ProductHierarchyWrapper;
 
 public class ToProductHierarchy implements MapFunction<Row, ProductHierarchyWrapper> {
 

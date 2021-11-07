@@ -1,10 +1,10 @@
-package p1.functions;
+package guru.bonacci.flink.ph.functions;
 
+import static guru.bonacci.flink.ph.ProductHierarchyJob.ID_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.JSON_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.JSON_PARENT_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.PARENT_IDS_FIELD;
 import static org.apache.flink.table.api.Expressions.$;
-import static p1.ProductHierarchyJob.ID_FIELD;
-import static p1.ProductHierarchyJob.JSON_FIELD;
-import static p1.ProductHierarchyJob.JSON_PARENT_FIELD;
-import static p1.ProductHierarchyJob.PARENT_IDS_FIELD;
 
 import java.util.Properties;
 

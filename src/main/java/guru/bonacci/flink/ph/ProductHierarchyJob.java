@@ -1,12 +1,13 @@
-package p1;
+package guru.bonacci.flink.ph;
 
+import static guru.bonacci.flink.ph.functions.Utils.*;
 import static org.apache.flink.table.api.Expressions.$;
-import static p1.functions.Utils.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.flink.api.common.functions.FilterFunction;
+import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.functions.KeySelector;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;
@@ -19,17 +20,18 @@ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer011;
 import org.apache.flink.table.api.Table;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+import org.apache.flink.util.Collector;
 
-import p1.SerDes.JsonNodeDeSchema;
-import p1.SerDes.JsonNodeSerSchema;
-import p1.functions.BackToJsonNode;
-import p1.functions.InsertTypeFilter;
-import p1.functions.ToHierarchy;
-import p1.functions.ToProduct;
-import p1.functions.ToProductHierarchy;
-import p1.model.HierarchyWrapper;
-import p1.model.ProductHierarchyWrapper;
-import p1.model.ProductWrapper;
+import guru.bonacci.flink.ph.SerDes.JsonNodeDeSchema;
+import guru.bonacci.flink.ph.SerDes.JsonNodeSerSchema;
+import guru.bonacci.flink.ph.functions.BackToJsonNode;
+import guru.bonacci.flink.ph.functions.InsertTypeFilter;
+import guru.bonacci.flink.ph.functions.ToHierarchy;
+import guru.bonacci.flink.ph.functions.ToProduct;
+import guru.bonacci.flink.ph.functions.ToProductHierarchy;
+import guru.bonacci.flink.ph.model.HierarchyWrapper;
+import guru.bonacci.flink.ph.model.ProductHierarchyWrapper;
+import guru.bonacci.flink.ph.model.ProductWrapper;
 
 @SuppressWarnings("serial")
 public class ProductHierarchyJob {
@@ -93,6 +95,17 @@ public class ProductHierarchyJob {
 						return isDoneIterating(hierarchy);
 					}
 				});
+
+
+		withPathToRoot.flatMap(new FlatMapFunction<HierarchyWrapper, HierarchyWrapper>() {
+
+			@Override
+			public void flatMap(HierarchyWrapper value, Collector<HierarchyWrapper> out) throws Exception {
+				// get all hierarchy nodes in subtree
+				// do something with the subtree
+				out.collect(value);
+			}
+		});
 
 		final DataStream<ProductWrapper> productData = 
 				env.addSource(new FlinkKafkaConsumer011<>(PRODUCT_TOPIC, new JsonNodeDeSchema(), sourceProps()))

@@ -1,4 +1,4 @@
-package p1.functions;
+package guru.bonacci.flink.ph.functions;
 
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.types.Row;

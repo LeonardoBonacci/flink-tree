@@ -1,4 +1,4 @@
-package p1.model;
+package guru.bonacci.flink.ph.model;
 
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;

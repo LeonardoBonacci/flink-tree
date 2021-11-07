@@ -1,13 +1,13 @@
-package p1.functions;
+package guru.bonacci.flink.ph.functions;
 
-import static p1.ProductHierarchyJob.ID_FIELD;
-import static p1.ProductHierarchyJob.PARENT_ID_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.ID_FIELD;
+import static guru.bonacci.flink.ph.ProductHierarchyJob.PARENT_ID_FIELD;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;
 import org.apache.flink.util.Collector;
 
-import p1.model.HierarchyWrapper;
+import guru.bonacci.flink.ph.model.HierarchyWrapper;
 
 public class ToHierarchy implements FlatMapFunction<JsonNode, HierarchyWrapper> {
 
