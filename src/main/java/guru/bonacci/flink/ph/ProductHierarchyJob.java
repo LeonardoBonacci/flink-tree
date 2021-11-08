@@ -52,6 +52,7 @@ public class ProductHierarchyJob {
 	
 	public static void main(String[] args) throws Exception {
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+		env.enableCheckpointing(1000);
 		final StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env);
 
         final DataStream<HierarchyWrapper> hierarchyData = 
@@ -111,27 +112,8 @@ public class ProductHierarchyJob {
 				env.addSource(new FlinkKafkaConsumer011<>(PRODUCT_TOPIC, new JsonNodeDeSchema(), sourceProps()))
 				   .flatMap(new ToProduct());
 
-		 // fault tolerance trick
-        final DataStream<ProductWrapper> faultTolerantProductData = 
-        		productData.keyBy(new KeySelector<ProductWrapper, String>() {
-		   
-		        	@Override
-				    public String getKey(ProductWrapper p) throws Exception {
-				        return p.id;
-				    }
-        		})
-				.window(GlobalWindows.create())
-				.trigger(CountTrigger.of(1))
-				.reduce(new ReduceFunction<ProductWrapper>() {
-			
-					@Override
-					public ProductWrapper reduce(ProductWrapper old, ProductWrapper _new) throws Exception {
-						return _new;
-					}
-		});
-        
 		Table hierarachyTable = tableEnv.fromDataStream(withPathToRoot);
-		Table productTable = tableEnv.fromDataStream(faultTolerantProductData);
+		Table productTable = tableEnv.fromDataStream(productData);
 
 		Table productHierarchyTable = productTable.leftOuterJoin(hierarachyTable, 
 					$(PARENT_ID_FIELD).isEqual($("hid"))).select(projection());
