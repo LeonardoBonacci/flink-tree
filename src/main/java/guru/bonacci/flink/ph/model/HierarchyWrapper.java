@@ -5,11 +5,12 @@ import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.node.ObjectNode;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@AllArgsConstructor()
+@AllArgsConstructor
 public class HierarchyWrapper {
 
-    public String hid;    
+    @Getter public String hid;    
     @JsonIgnore public ObjectNode hjson;
     public String pId;
     public HierarchyWrapper parent;
