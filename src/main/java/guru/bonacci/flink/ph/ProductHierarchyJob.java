@@ -53,6 +53,7 @@ public class ProductHierarchyJob {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws Exception {
 		final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+		env.setParallelism(1);
 		env.enableCheckpointing(1000, CheckpointingMode.EXACTLY_ONCE, true);
 		env.getCheckpointConfig().setMinPauseBetweenCheckpoints(500);
 		env.getCheckpointConfig().enableExternalizedCheckpoints(ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
