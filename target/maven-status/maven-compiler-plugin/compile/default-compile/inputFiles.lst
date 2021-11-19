@@ -1,14 +1,12 @@
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\functions\Snapshot.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\ProductHierarchyJob.java
-C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\ProductHierarchyJob2.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\functions\ToHierarchy.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\model\ProductHierarchyWrapper.java
-C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\ProductHierarchyJobWorking.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\functions\Utils.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\SerDes.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\functions\ToProductHierarchy.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\model\ProductWrapper.java
-C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\IterateDemo.java
+C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\Assignment.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\functions\InsertTypeFilter.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\functions\ToProduct.java
 C:\Users\311759\eclipse-workspace\flink-tree\src\main\java\guru\bonacci\flink\ph\functions\BackToJsonNode.java

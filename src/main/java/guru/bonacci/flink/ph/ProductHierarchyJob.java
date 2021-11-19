@@ -10,6 +10,7 @@ import java.util.Map;
 
 import org.apache.flink.api.common.functions.FilterFunction;
 import org.apache.flink.api.common.functions.MapFunction;
+import org.apache.flink.graph.Graph;
 import org.apache.flink.shaded.jackson2.com.fasterxml.jackson.databind.JsonNode;
 import org.apache.flink.streaming.api.CheckpointingMode;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -88,7 +89,7 @@ public class ProductHierarchyJob {
 					return h;
 				}
 		});   
-
+		
 		// keep iterating
 		final DataStream<HierarchyWrapper> withoutPathToRoot = iteration.filter(new FilterFunction<HierarchyWrapper>() {
 			public boolean filter(HierarchyWrapper h) {
